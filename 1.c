@@ -2,7 +2,6 @@
 main(){
     //Comandos
     int idade;
-    int n;
     char nome[21];
     printf("hola mundo \n");
     printf("Qual é seu nome? ");
