@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <time.h>
 int main(){
-    //Comandos
+    time_t now = time(0);
+    struct tm timeinfo = *localtime(&now);
+    int anoatual = timeinfo.tm_year+1900;
     int idade;
     char nome[21];
-    int anoatual = 2017;
     printf("Seja bemvindo !\n");
     printf("Qual é seu nome? ");
     scanf("%s",nome);
@@ -23,7 +25,6 @@ int main(){
             }
     }
     int i,anos_21,anos_20,anodaresta;
-    i = 0;
     anos_21 = 0;
     anodaresta = anoatual;
     while(anodaresta > 2000){
