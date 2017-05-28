@@ -13,5 +13,10 @@ main(){
     printf("Bem vindo %s",nome);
     printf(",sua idade é %.d",idade);
     printf("\n");
+    if(idade >= 18){
+        printf("Você é maior de idade! \n");
+    }else{
+        printf("Você NÃO é maior de idade! já que tem menos de 18 anos \n");
+    }
     return 0;
 }
