@@ -1,5 +1,5 @@
 #include <stdio.h>
-main(){
+int main(){
     //Comandos
     int idade;
     char nome[21];
