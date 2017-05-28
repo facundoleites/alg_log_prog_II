@@ -10,9 +10,7 @@ main(){
     printf("Qual é a sua idade? ");
     scanf("%d",&idade);
     printf("\n");
-    printf("Bem vindo %s",nome);
-    printf(",sua idade é %.d",idade);
-    printf("\n");
+    printf("Bem vindo %s, sua idade é %.d \n",nome,idade);
     switch(idade){
         case 18:
             printf("você está no limite! \n");
