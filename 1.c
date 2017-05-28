@@ -22,10 +22,19 @@ main(){
                 printf("Você NÃO é maior de idade! já que tem menos de 18 anos \n");
             }
     }
-    int i;
+    int i,anos_21,anos_20,anodaresta;
+    i = 0;
+    anos_21 = 0;
+    anodaresta = anoatual;
+    while(anodaresta > 2000){
+        anos_21++;
+        anodaresta--;
+    }
     printf("Você já viveu : \n");
+    printf("\t %.d anos ─ e uma parte do %.d ─ no século XXI \n",(anos_21-1),anoatual);
+    printf("\t %.d anos ─ e uma parte do %.d ─ no século XX \n",(idade-anos_21),(anoatual-idade));
     for(i=0;i <= idade;i++){
-        int anodaresta = anoatual - i;
+        anodaresta = anoatual - i;
         if(i == idade){
             printf("\n \t e uma parte do ano de %d no qual você nasceu \n",anodaresta);
         }else if(i == 0){
