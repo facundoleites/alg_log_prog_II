@@ -59,12 +59,9 @@ printf("\n \n██████╗ ███████╗███╗   ██
     }
 
     int idadeescolhida = 0;
-    printf("Informe uma idade e te direi que ano era: \n");
+    printf("=========================================== \n");
+    printf("Informe uma idade e te direi que ano era: ");
     scanf("%d",&idadeescolhida);
-
-    /*for(i=0;i <= idade;i++){
-        printf("\t Quando você fez %d anos o ano era %d \n",i,todososanos[(idadeescolhida-1)]);
-    }*/
     printf("\t Quando você fez %d anos o ano era %d \n",idadeescolhida,todososanos[(idadeescolhida-1)]);
 
     return 0;
