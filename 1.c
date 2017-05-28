@@ -6,7 +6,7 @@ int main(){
     int anoatual = timeinfo.tm_year+1900;
     int idade;
     char nome[21];
-    printf("Seja bemvindo !\n");
+printf("\n \n██████╗ ███████╗███╗   ███╗      ██╗   ██╗██╗███╗   ██╗██████╗  ██████╗\n██╔══██╗██╔════╝████╗ ████║      ██║   ██║██║████╗  ██║██╔══██╗██╔═══██╗\n██████╔╝█████╗  ██╔████╔██║█████╗██║   ██║██║██╔██╗ ██║██║  ██║██║██╗██║\n██╔══██╗██╔══╝  ██║╚██╔╝██║╚════╝╚██╗ ██╔╝██║██║╚██╗██║██║  ██║██║██║██║\n██████╔╝███████╗██║ ╚═╝ ██║       ╚████╔╝ ██║██║ ╚████║██████╔╝╚█║████╔╝\n╚═════╝ ╚══════╝╚═╝     ╚═╝        ╚═══╝  ╚═╝╚═╝  ╚═══╝╚═════╝  ╚╝╚═══╝\n \n \n");
     printf("Qual é seu nome? ");
     scanf("%s",nome);
     printf("Qual é a sua idade? ");
@@ -24,6 +24,7 @@ int main(){
                 printf("Você NÃO é maior de idade! já que tem menos de 18 anos \n");
             }
     }
+    int todososanos[idade];
     int i,anos_21,anos_20,anodaresta;
     anos_21 = 0;
     anodaresta = anoatual;
@@ -47,6 +48,7 @@ int main(){
 
     for(i=0;i <= idade;i++){
         anodaresta = anoatual - i;
+        todososanos[((idade-1)-i)] = anodaresta;
         if(i == idade){
             printf("\n \t e uma parte do ano de %d no qual você nasceu \n",anodaresta);
         }else if(i == 0){
@@ -55,5 +57,15 @@ int main(){
             printf(" %d,",anodaresta);
         }
     }
+
+    int idadeescolhida = 0;
+    printf("Informe uma idade e te direi que ano era: \n");
+    scanf("%d",&idadeescolhida);
+
+    /*for(i=0;i <= idade;i++){
+        printf("\t Quando você fez %d anos o ano era %d \n",i,todososanos[(idadeescolhida-1)]);
+    }*/
+    printf("\t Quando você fez %d anos o ano era %d \n",idadeescolhida,todososanos[(idadeescolhida-1)]);
+
     return 0;
 }
