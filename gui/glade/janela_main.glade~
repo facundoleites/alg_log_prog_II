@@ -55,21 +55,6 @@
             <property name="y">64</property>
           </packing>
         </child>
-        <child>
-          <object class="GtkButton" id="btn_enviar">
-            <property name="label" translatable="yes">Enviar</property>
-            <property name="width_request">357</property>
-            <property name="height_request">61</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <signal name="clicked" handler="executartudo" swapped="no"/>
-          </object>
-          <packing>
-            <property name="x">29</property>
-            <property name="y">137</property>
-          </packing>
-        </child>
       </object>
     </child>
   </object>

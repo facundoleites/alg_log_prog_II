@@ -1,15 +1,31 @@
 #include <stdio.h>
 #include <time.h>
 #include <gtk/gtk.h>
+
+GtkEntryBuffer *buffer;
+GtkLabel   *g_lbl_hello;
+GtkEntry    *g_in_idade;
+GtkEntry    *g_in_nome;
+
+GtkBuilder  *builder; 
+GtkWidget   *window;
+
+void executartudo(){
+    const gchar *nome;
+    const gchar *idade;
+    nome = gtk_entry_get_text (g_in_nome);
+    idade = gtk_entry_get_text (g_in_idade);
+    char message[1024];
+    snprintf(message, sizeof(message), "Bem vindo %s, sua idade é %s \n", nome, idade);
+    gtk_label_set_text(g_lbl_hello, message);
+}
+
 int main(int argc, char *argv[]){
     time_t now = time(0);
     struct tm timeinfo = *localtime(&now);
     int anoatual = timeinfo.tm_year+1900;
     int idade;
     char nome[21];
-
-    GtkBuilder      *builder; 
-    GtkWidget       *window;
  
     gtk_init(&argc, &argv);
  
@@ -18,21 +34,20 @@ int main(int argc, char *argv[]){
  
     window = GTK_WIDGET(gtk_builder_get_object(builder, "janela_main"));
     gtk_builder_connect_signals(builder, NULL);
+    g_lbl_hello = GTK_LABEL(gtk_builder_get_object(builder, "label1"));
+    g_in_idade = GTK_ENTRY(gtk_builder_get_object(builder, "in_idade"));
+    g_in_nome = GTK_ENTRY(gtk_builder_get_object(builder, "in_nome"));
  
     g_object_unref(builder);
- 
-    gtk_widget_show(window);                
+
+
+    /*char message[1024];
+    snprintf(message, sizeof(message), "Bem vindo %s, sua idade é %d \n", nome, idade);
+    gtk_label_set_text(g_lbl_hello, message);*/
+    gtk_widget_show(window);
     gtk_main();
 
-
-printf("\n \n██████╗ ███████╗███╗   ███╗      ██╗   ██╗██╗███╗   ██╗██████╗  ██████╗\n██╔══██╗██╔════╝████╗ ████║      ██║   ██║██║████╗  ██║██╔══██╗██╔═══██╗\n██████╔╝█████╗  ██╔████╔██║█████╗██║   ██║██║██╔██╗ ██║██║  ██║██║██╗██║\n██╔══██╗██╔══╝  ██║╚██╔╝██║╚════╝╚██╗ ██╔╝██║██║╚██╗██║██║  ██║██║██║██║\n██████╔╝███████╗██║ ╚═╝ ██║       ╚████╔╝ ██║██║ ╚████║██████╔╝╚█║████╔╝\n╚═════╝ ╚══════╝╚═╝     ╚═╝        ╚═══╝  ╚═╝╚═╝  ╚═══╝╚═════╝  ╚╝╚═══╝\n \n \n");
-    printf("Qual é seu nome? ");
-    scanf("%s",nome);
-    printf("Qual é a sua idade? ");
-    scanf("%d",&idade);
-    printf("\n");
-    printf("Bem vindo %s, sua idade é %.d \n",nome,idade);
-    switch(idade){
+    /*switch(idade){
         case 18:
             printf("você está no limite! \n");
             break;
@@ -83,5 +98,11 @@ printf("\n \n██████╗ ███████╗███╗   ██
     scanf("%d",&idadeescolhida);
     printf("\t Quando você fez %d anos o ano era %d \n",idadeescolhida,todososanos[(idadeescolhida-1)]);
 
-    return 0;
+    return 0;*/
+}
+
+// called when window is closed
+void on_window_main_destroy()
+{
+    gtk_main_quit();
 }
